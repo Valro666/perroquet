@@ -1,4 +1,4 @@
-#include "Compte.cpp"
+#include "Compte.h"
 
 class Admin:public Compte{
 

@@ -1,8 +1,5 @@
-#include "Compte.cpp"
+#include "Etudiant.h"
 
 class Etudiant : public Compte{
-
-
-
 
 };

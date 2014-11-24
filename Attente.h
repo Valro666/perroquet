@@ -1,4 +1,4 @@
-#include "Compte.h"
+#include "Compte.cpp"
 
 class Attente : public Compte{
       private:
