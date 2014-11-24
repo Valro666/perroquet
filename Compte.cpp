@@ -1,30 +1,30 @@
 #include "Compte.h"
 
-Compte::Compte(string id , string pw , int status){
+Compte::Compte(std::string id , std::string pw){
 	identifiant = id ;
 	password = pw ;
 };
 
-string Compte::getIdentifiant(){
+std::string Compte::getIdentifiant(){
 	return identifiant;
 }
 
-string Compte::getPassword(){
+std::string Compte::getPassword(){
 	return password;
 }
 
-string Compte::getTampon(){
+std::string Compte::getTampon(){
 	return tampon ;
 }
 
-void Compte::setTampon(string s){
+void Compte::setTampon(std::string s){
 	tampon = s;
 }
 
-void Compte::setIdentifiant(string s){
+void Compte::setIdentifiant(std::string s){
 	identifiant = s;
 }
 
-void Compte::setPassword(string s){
+void Compte::setPassword(std::string s){
 	password = s;
 }

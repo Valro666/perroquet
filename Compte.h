@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Constante.h"
+
 class Compte{
       private :
               std::string identifiant ;
@@ -7,7 +8,7 @@ class Compte{
               std::string tampon;
       public:
 	          Compte();
-	          Compte(std::string id , std::string pw , int status);
+	          Compte(std::string id , std::string pw);
 	          std::string getIdentifiant();
               std::string getPassword();
               std::string getTampon();

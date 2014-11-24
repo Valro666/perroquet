@@ -1,6 +1,5 @@
-#include <string>
 #include "Compte.h"
-
+#include "Constante.h"
 class Perroquet{
        private:
               int typeAjout;
@@ -10,7 +9,7 @@ class Perroquet{
       public:
              Perroquet();
              bool connexion(std::string identifiant);
-             void inscription(std::string identifiant, std::string mdp, int status);
+             bool inscription(std::string identifiant, std::string mdp, int status);
              void accepterCours(int indiceCours);
              void refuserCours(int indiceCours);
              void ouvrirInscription(int indiceCours);

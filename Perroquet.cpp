@@ -3,8 +3,38 @@
 Perroquet::Perroquet(){
     this.typeAjout = TYPE_RESSOURCE;
 }
-Perroquet::bool connexion(std::string identifiant);
-Perroquet::void inscription(std::string identifiant, std::string mdp, int status);
+
+Perroquet::bool connexion(std::string identifiant, std::string mdp){
+    int unsigned i = 0;
+    bool trouv = false;
+    while(i<this.listCompte.size() && !trouv){
+        Compte c = this.listCompte[i];
+        if(c.getIdentifiant() == identifiant && c.getPassword() == mdp){
+            this.session = c;
+            trouv = true;
+        }else{
+            i++;
+        }
+    }
+    return trouv;
+}
+
+Perroquet::bool inscription(std::string identifiant, std::string mdp, int status){
+    switch(status){
+    case COMPTE_ADMIN :
+        Admin compte(identifiant,mdp);
+        listCompte.insert(listCompte.end(), (Compte)compte);
+        break;
+        case COMPTE_ENSEIGNANT :
+        Enseignant compte(identifiant,mdp);
+        listCompte.insert(listCompte.end(), (Compte)compte);
+        break;
+        case COMPTE_ETUDIANT :
+        Etudiant compte(identifiant,mdp);
+        listCompte.insert(listCompte.end(), (Compte)compte);
+        break;
+    }
+}
 Perroquet::void accepterCours(int indiceCours);
 Perroquet::void refuserCours(int indiceCours);
 Perroquet::void ouvrirInscription(int indiceCours);
