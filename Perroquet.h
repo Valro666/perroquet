@@ -1,11 +1,13 @@
 #include <string>
 
+using namespace std;
+
 class Perroquet{
        private:
               int typeAjout;
               Compte session;
-              std::vector<Cours> listCours;
-              std::vector<Compte> listCompte;
+              vector<Cours> listCours;
+              vector<Compte> listCompte;
       public:
              bool connexion(string identifiant);
              void inscription(string identifiant, string mdp, int status);

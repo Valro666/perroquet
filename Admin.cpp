@@ -1,9 +1,2 @@
-#include "Compte.cpp"
+#include "Admin.h"
 
-class Admin:public Compte
-
-{
-
-
-
-};
