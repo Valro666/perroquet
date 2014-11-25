@@ -1,30 +1,33 @@
 #include "Compte.h"
+using namespace std;
 
-Compte::Compte(std::string id , std::string pw){
+Compte::Compte(){};
+
+Compte::Compte(string id , string pw){
 	identifiant = id ;
 	password = pw ;
 };
 
-std::string Compte::getIdentifiant(){
+string Compte::getIdentifiant() const{
 	return identifiant;
 }
 
-std::string Compte::getPassword(){
+string Compte::getPassword() const{
 	return password;
 }
 
-std::string Compte::getTampon(){
+string Compte::getTampon() const{
 	return tampon ;
 }
 
-void Compte::setTampon(std::string s){
+void Compte::setTampon(string s){
 	tampon = s;
 }
 
-void Compte::setIdentifiant(std::string s){
+void Compte::setIdentifiant(string s){
 	identifiant = s;
 }
 
-void Compte::setPassword(std::string s){
+void Compte::setPassword(string s){
 	password = s;
 }

@@ -1,5 +1,7 @@
 #include "Etudiant.h"
+using namespace std;
 
-class Etudiant : public Compte{
-
-};
+Etudiant::Etudiant(string nom, string pw) : Compte(nom, pw)
+{
+ 
+}
