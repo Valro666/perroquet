@@ -8,13 +8,13 @@
 class Depot{
       public:
 	          Depot();
-	          Depot(std::string intitule , std::string chemin, std::bool ouvert);
+	          Depot(std::string intitule , std::string chemin, bool ouvert);
 	          std::string getIntitule() const;
-	          void setIntitule(std::string inti) const;
+	          void setIntitule(std::string inti);
               std::string getChemin() const;
-              void setChemin(std::string road) const;
+              void setChemin(std::string road);
               bool getOuvert() const;
-              void setOuvert() const;
+              void setOuvert();
 			  
               
       protected :
@@ -22,4 +22,4 @@ class Depot{
 	          std::string chemin;
               bool ouvert;
 };
-
+#endif

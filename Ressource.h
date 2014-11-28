@@ -10,9 +10,9 @@ class Ressource{
 	          Ressource();
 	          Ressource(std::string inti , std::string road);
 	          std::string getIntitule() const;
-	          void setIntitule(std::string inti) const;
+	          void setIntitule(std::string inti);
               std::string getChemin() const;
-              void setChemin(std::string road) const;
+              void setChemin(std::string road);
 			  
               
       protected :
@@ -20,4 +20,4 @@ class Ressource{
 	          std::string chemin;
              
 };
-
+#endif

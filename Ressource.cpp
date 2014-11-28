@@ -15,10 +15,10 @@ string Ressource::getIntitule() const{
 	return intitule;
 }
 
-void Ressource::setChemin(string road){
-	chemin = road ;
+void Ressource::setChemin(string road) {
+	chemin = road;
 }
 
 void Ressource::setIntitule(string inti){
-	intitule = inti ;
+	intitule = inti;
 }

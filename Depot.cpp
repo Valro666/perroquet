@@ -2,7 +2,7 @@
 using namespace std;
 
 Depot::Depot(){};
-Ressource::Ressource(string inti , string road, bool ouv){
+Depot::Depot(string inti , string road, bool ouv){
     intitule = inti;
     chemin = road;
     ouvert =ouv;
@@ -16,11 +16,11 @@ string Depot::getIntitule() const{
 	return intitule;
 }
 
-string Depot::getOuvert() const{
+bool Depot::getOuvert() const{
 	return ouvert;
 }
 
-void Depot::setChemin(string road){
+void Depot::setChemin(string road) {
 	chemin = road ;
 }
 
@@ -28,6 +28,6 @@ void Depot::setIntitule(string inti){
 	intitule = inti ;
 }
 
-void Depot::setOuvert(){
+void Depot::setOuvert() {
 	ouvert = !ouvert ;
 }
