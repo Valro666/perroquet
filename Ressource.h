@@ -20,4 +20,4 @@ class Ressource{
 	          std::string chemin;
              
 };
-#endif
+

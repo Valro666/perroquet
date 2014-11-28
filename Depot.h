@@ -22,4 +22,4 @@ class Depot{
 	          std::string chemin;
               std::bool chemin;
 };
-#endif
+
