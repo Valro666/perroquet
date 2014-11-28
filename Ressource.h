@@ -8,7 +8,7 @@
 class Ressource{
       public:
 	          Ressource();
-	          Ressource(std::string intitule , std::string chemin);
+	          Ressource(std::string inti , std::string road);
 	          std::string getIntitule() const;
 	          void setIntitule(std::string inti) const;
               std::string getChemin() const;
