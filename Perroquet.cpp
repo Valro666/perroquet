@@ -19,8 +19,6 @@ bool Perroquet::connexion(string identifiant, string mdp){
         }
     }
     return trouv;
-    
-    
 }
 
 bool Perroquet::inscription(string identifiant, string mdp, int status){
@@ -49,7 +47,16 @@ bool Perroquet::inscription(string identifiant, string mdp, int status){
 //Perroquet::void ajouterDevoir(int indiceCours, Devoir elem);
 //Perroquet::void ajouterDepot(int indiceCours, Depot elem);
 //Perroquet::void proposerCours(Cours c);
-//Perroquet::void accepterCompte(int indiceCompte);
+Perroquet::void accepterCompte(int indiceCompte){
+    if(listCompte[indiceCompte] typeof Attente){
+         Attente a = (Attente) listCompte[indiceCompte];
+         switch(a.getStatus()){
+              case
+         }
+    }
+    else{ //le compte donner n'est pas en attente
+    }
+}
 //Perroquet::void refuserCompte(int indiceCompte);
 //Perroquet::void ouvrirDepot(int indiceDepot, int indiceCours);
 //Perroquet::void fermerDepot(int indiceDepot, int indiceCours);
