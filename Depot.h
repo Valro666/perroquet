@@ -1,23 +1,25 @@
-#ifndef DEF_RESSOURCE
-#define DEF_RESSOURCE
+#ifndef DEF_DEPOT
+#define DEF_DEPOT
 
 #include <iostream>
 #include <string>
 #include "Constante.h"
 
-class Ressource{
+class Depot{
       public:
-	          Ressource();
-	          Ressource(std::string inti , std::string road);
+	          Depot();
+	          Depot(std::string intitule , std::string chemin, std::bool ouvert);
 	          std::string getIntitule() const;
 	          void setIntitule(std::string inti) const;
               std::string getChemin() const;
               void setChemin(std::string road) const;
+              std::bool getOuvert() const;
+              void setOuvert() const;
 			  
               
       protected :
               std::string intitule ;
 	          std::string chemin;
-             
+              std::bool chemin;
 };
 
