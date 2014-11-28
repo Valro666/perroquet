@@ -1,3 +1,6 @@
+#ifndef DEF_DEPOT
+#define DEF_DEPOT
+
 #include <iostream>
 #include <string>
 #include "Constante.h"

@@ -1,3 +1,5 @@
+#ifndef DEF_RESSOURCE
+#define DEF_RESSOURCE
 
 #include <iostream>
 #include <string>
