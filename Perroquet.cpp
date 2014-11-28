@@ -19,6 +19,8 @@ bool Perroquet::connexion(string identifiant, string mdp){
         }
     }
     return trouv;
+    
+    
 }
 
 bool Perroquet::inscription(string identifiant, string mdp, int status){
