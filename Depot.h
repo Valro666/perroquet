@@ -13,7 +13,7 @@ class Depot{
 	          void setIntitule(std::string inti) const;
               std::string getChemin() const;
               void setChemin(std::string road) const;
-              std::bool getOuvert() const;
+              bool getOuvert() const;
               void setOuvert() const;
 			  
               
