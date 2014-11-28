@@ -20,6 +20,6 @@ class Depot{
       protected :
               std::string intitule ;
 	          std::string chemin;
-              std::bool chemin;
+              bool ouvert;
 };
 
