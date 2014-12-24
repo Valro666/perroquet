@@ -13,6 +13,8 @@
    - double cliquer sur le projet .../Visual Studio 2010/Projects/Perroquet/Perroquet/Perroquet.vcxproj (une icone de fenêtre)
 
 
+Pour modifier le charset
+   - Projet -> Proprietes de Perroquet -> Proprietes de configuration -> General -> Jeu de caractères : choisir multi-octet
 
 
 
