@@ -1,4 +1,31 @@
-﻿========================================================================
+﻿Pour récupérer proprement le projet :
+   - crée un nouveau "Projet Win32" nommé "Perroquet" avec Visual Studio 2010 Express Edition
+   - dans l'assistant cliqué sur suivant
+   - dans les options suplémentaires coché l'option "Projet vide"
+   - cliquer sur Terminer
+   - fermer Visual Studio 2010
+   - ouvrir un client git
+   - ce placer dans le dossier .../Visual Studio 2010/Projects/Perroquet/Perroquet  (... corespond a /Documents)
+   - un ls vous donnera ce resultat "Perroquet.vcxproj Perroquet.vcxproj.filters Perroquet.vcxproj.user"
+   - ces 3 fichiers sont à supprimer (il sont versionner est seront donc récuperé)
+   - rm *
+   - git clone https://github.com/Valro666/perroquet .
+   - double cliquer sur le projet .../Visual Studio 2010/Projects/Perroquet/Perroquet/Perroquet.vcxproj (une icone de fenêtre)
+
+
+
+
+
+
+
+
+
+
+
+
+Read me générer par Visual Studio
+
+========================================================================
     APPLICATION WIN32 : Vue d'ensemble du projet Perroquet
 ========================================================================
 
