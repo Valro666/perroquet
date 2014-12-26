@@ -6,4 +6,6 @@
 #define COMPTE_ETUDIANT 2
 #define COMPTE_ADMIN 3
 
-#include <string>
+// id de la vue connexion
+#define ID_CONNEXION_MENUITEM_INSCRIPTION 101
+#define ID_CONNEXION_BOUTON_CONNEXION 102

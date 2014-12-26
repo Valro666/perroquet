@@ -13,7 +13,27 @@
    - double cliquer sur le projet .../Visual Studio 2010/Projects/Perroquet/Perroquet/Perroquet.vcxproj (une icone de fenêtre)
 
 
-Pour modifier le charset
+
+Pour crée une vue :
+	Quasiment tous ce passe dans Perroquet.cpp. Il y a 4 fonction a crée dans Perroquet.cpp (prendre en exemple celle sur connexion) :
+		- HWND getFenetre<NomFenetre>();
+		crée la classe de la fenetre ainsi que la fenetre (c'est ici qu'on lie le menu a la fenetre (voir Perroquet.rc pour le menu), ainsi que la procedure de cette fenetre)
+		
+		- LRESULT CALLBACK procedureFenetre<NomFenetre>(HWND, UINT, WPARAM, LPARAM);
+		la procedure de la fenetre, c'est elle qui regarde le message et qui fait l'action corespondante (le minimum etant CREATE et DESTROY)
+		
+		- VOID buildFenetre<NomFenetre>(HWND fenetrePrincipale);
+		cette procedure construit la fenetre et elle est a placer dans le case CREATE dans la procedure principal, essentiellement constituer de CreateWindow()
+		
+		- VOID commandFenetre<NomFenetre>(HWND fenetrePrincipale, WPARAM wParam);
+		cette procedure est celle qui va gérer les actions de l'utilisateur en faisant un switch sur le message (a placer dans le case COMMAND de la procedure principal)
+
+		le reste est a definire dans les fichiers Constante.h (notament les ID a envoyer lors de clic sur le bouton)
+		ces Id auront cette forme : 
+		ID_<NomFenetre>_<NomComposant>_<Action>
+
+
+Pour modifier le charset (obligatoire pour les conversion entre string et LPTSTR)
    - Projet -> Proprietes de Perroquet -> Proprietes de configuration -> General -> Jeu de caractères : choisir multi-octet
 
 

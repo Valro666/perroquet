@@ -4,187 +4,165 @@
 #include "stdafx.h"
 #include "Perroquet.h"
 
-#define MAX_LOADSTRING 100
+//declaration des variables
+HWND fenetreConnexion;
+HWND fenetreConnexion_EditTextLogin;
+HWND fenetreConnexion_EditTextMdp;
+HINSTANCE instance;
 
-// Variables globales :
-HINSTANCE hInst;								// instance actuelle
-TCHAR szTitle[MAX_LOADSTRING];					// Le texte de la barre de titre
-TCHAR szWindowClass[MAX_LOADSTRING];			// le nom de la classe de fenêtre principale
+//declaration des fonctions de création des fenetres
+HWND getFenetreConnexion();
+//declaration des procedures de gestion des fenetres
+LRESULT CALLBACK procedureFenetreConnexion(HWND, UINT, WPARAM, LPARAM);
+//declaration des fonctions de construction des vues
+VOID buildFenetreConnexion(HWND fenetrePrincipale);
+//declaration des fonctionsde commande
+VOID commandFenetreConnexion(HWND fenetrePrincipale, WPARAM wParam);
 
-// Pré-déclarations des fonctions incluses dans ce module de code :
-ATOM				MyRegisterClass(HINSTANCE hInstance);
-BOOL				InitInstance(HINSTANCE, int);
-LRESULT CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK	About(HWND, UINT, WPARAM, LPARAM);
-
-int APIENTRY _tWinMain(HINSTANCE hInstance,
-                     HINSTANCE hPrevInstance,
-                     LPTSTR    lpCmdLine,
-                     int       nCmdShow)
+int APIENTRY WinMain(HINSTANCE cetteInstance, HINSTANCE precedenteInstance,
+LPSTR lignesDeCommande, int modeDAffichage)
 {
-	UNREFERENCED_PARAMETER(hPrevInstance);
-	UNREFERENCED_PARAMETER(lpCmdLine);
+	instance = cetteInstance;
+    MSG message;
+    fenetreConnexion = getFenetreConnexion();
+	if (!fenetreConnexion) return FALSE;
+    ShowWindow(fenetreConnexion, modeDAffichage);
+    UpdateWindow(fenetreConnexion);
 
- 	// TODO: placez ici le code.
-	MSG msg;
-	HACCEL hAccelTable;
 
-	// Initialise les chaînes globales
-	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-	LoadString(hInstance, IDC_PERROQUET, szWindowClass, MAX_LOADSTRING);
-	MyRegisterClass(hInstance);
+    while (GetMessage(&message, NULL, 0, 0))
+    {
+        TranslateMessage(&message);
+        DispatchMessage(&message);
+    }
+    return message.wParam;
+}
 
-	// Effectue l'initialisation de l'application :
-	if (!InitInstance (hInstance, nCmdShow))
-	{
-		return FALSE;
+//fonction de création des fenetres :
+
+HWND getFenetreConnexion(){
+	HWND rep;
+	WNDCLASS classeFenetre;
+
+    classeFenetre.style = 0;
+    classeFenetre.lpfnWndProc = procedureFenetreConnexion;
+    classeFenetre.cbClsExtra = 0;
+    classeFenetre.cbWndExtra = 0;
+    classeFenetre.hInstance = NULL;
+    classeFenetre.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    classeFenetre.hCursor = LoadCursor(NULL, IDC_ARROW);
+    classeFenetre.hbrBackground = (HBRUSH)(1 + COLOR_BTNFACE);
+    classeFenetre.lpszMenuName =  TEXT("ID_MENU_CONNEXION");
+    classeFenetre.lpszClassName = TEXT("classeFConnexion");
+
+    // On prévoit quand même le cas où ça échoue
+    if(RegisterClass(&classeFenetre)){
+    rep = CreateWindow(TEXT("classeFConnexion"), TEXT("Perroquet - Connexion"), WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
+                                   CW_USEDEFAULT, CW_USEDEFAULT, 400, 300,
+                                                   NULL, NULL, instance, NULL);
 	}
-
-	hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_PERROQUET));
-
-	// Boucle de messages principale :
-	while (GetMessage(&msg, NULL, 0, 0))
-	{
-		if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-		}
-	}
-
-	return (int) msg.wParam;
+	return rep;
 }
 
 
+//procedure des fenetre :
 
-//
-//  FONCTION : MyRegisterClass()
-//
-//  BUT : inscrit la classe de fenêtre.
-//
-//  COMMENTAIRES :
-//
-//    Cette fonction et son utilisation sont nécessaires uniquement si vous souhaitez que ce code
-//    soit compatible avec les systèmes Win32 avant la fonction 'RegisterClassEx'
-//    qui a été ajoutée à Windows 95. Il est important d'appeler cette fonction
-//    afin que l'application dispose des petites icônes correctes qui lui sont
-//    associées.
-//
-ATOM MyRegisterClass(HINSTANCE hInstance)
+LRESULT CALLBACK procedureFenetreConnexion(HWND fenetre, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	WNDCLASSEX wcex;
-
-	wcex.cbSize = sizeof(WNDCLASSEX);
-
-	wcex.style			= CS_HREDRAW | CS_VREDRAW;
-	wcex.lpfnWndProc	= WndProc;
-	wcex.cbClsExtra		= 0;
-	wcex.cbWndExtra		= 0;
-	wcex.hInstance		= hInstance;
-	wcex.hIcon			= LoadIcon(hInstance, MAKEINTRESOURCE(IDI_PERROQUET));
-	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
-	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
-	wcex.lpszMenuName	= MAKEINTRESOURCE(IDC_PERROQUET);
-	wcex.lpszClassName	= szWindowClass;
-	wcex.hIconSm		= LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
-
-	return RegisterClassEx(&wcex);
+    switch (message)
+    {
+        case WM_CREATE:
+			buildFenetreConnexion(fenetre);
+            return 0;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            return 0;
+		case WM_COMMAND:
+			commandFenetreConnexion(fenetre,wParam);
+        default:
+            return DefWindowProc(fenetre, message, wParam, lParam);
+    }
 }
 
-//
-//   FONCTION : InitInstance(HINSTANCE, int)
-//
-//   BUT : enregistre le handle de l'instance et crée une fenêtre principale
-//
-//   COMMENTAIRES :
-//
-//        Dans cette fonction, nous enregistrons le handle de l'instance dans une variable globale, puis
-//        créons et affichons la fenêtre principale du programme.
-//
-BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
-{
-   HWND hWnd;
+//fonction de constructon des vues :
 
-   hInst = hInstance; // Stocke le handle d'instance dans la variable globale
+VOID buildFenetreConnexion(HWND fenetrePrincipale){
+	HWND label1 = CreateWindow(
+		TEXT("STATIC"),
+		TEXT("Nom d'utilisateur :"),
+		WS_VISIBLE | WS_CHILD | ES_RIGHT,
+		40,42,
+		120,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
+	fenetreConnexion_EditTextLogin=CreateWindow(
+        TEXT("EDIT"),
+        TEXT(""),
+        WS_CHILD|WS_VISIBLE|ES_LEFT,
+        180,40,
+        160,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
 
-   hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, hInstance, NULL);
-
-   if (!hWnd)
-   {
-      return FALSE;
-   }
-
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
-
-   return TRUE;
+	HWND label2 = CreateWindow(
+		TEXT("STATIC"),
+		TEXT("Mot de passe :"),
+		WS_VISIBLE | WS_CHILD | ES_RIGHT,
+		60,72,
+		100,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
+	fenetreConnexion_EditTextMdp=CreateWindow(
+        TEXT("EDIT"),
+        TEXT(""),
+        WS_CHILD|WS_VISIBLE|ES_LEFT|ES_PASSWORD ,
+        180,70,
+        160,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
+	HWND boutonConnexion =CreateWindow(
+		TEXT("BUTTON"),
+        TEXT("Connexion"),
+        WS_CHILD|WS_VISIBLE ,
+        100,110,
+        160,20,
+        fenetrePrincipale,
+        (HMENU)ID_CONNEXION_BOUTON_CONNEXION,
+        instance,
+        NULL);
 }
 
-//
-//  FONCTION : WndProc(HWND, UINT, WPARAM, LPARAM)
-//
-//  BUT :  traite les messages pour la fenêtre principale.
-//
-//  WM_COMMAND	- traite le menu de l'application
-//  WM_PAINT	- dessine la fenêtre principale
-//  WM_DESTROY	- génère un message d'arrêt et retourne
-//
-//
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-	int wmId, wmEvent;
-	PAINTSTRUCT ps;
-	HDC hdc;
 
-	switch (message)
-	{
-	case WM_COMMAND:
-		wmId    = LOWORD(wParam);
-		wmEvent = HIWORD(wParam);
-		// Analyse les sélections de menu :
-		switch (wmId)
-		{
-		case IDM_ABOUT:
-			DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-			break;
-		case IDM_EXIT:
-			DestroyWindow(hWnd);
-			break;
-		default:
-			return DefWindowProc(hWnd, message, wParam, lParam);
-		}
-		break;
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		// TODO: ajoutez ici le code de dessin...
-		EndPaint(hWnd, &ps);
-		break;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
-	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
-	}
-	return 0;
-}
+//fonctions de commande :
+VOID commandFenetreConnexion(HWND fenetrePrincipale, WPARAM wParam){
+	switch(LOWORD(wParam))
+            {
+                case ID_CONNEXION_MENUITEM_INSCRIPTION:
+					MessageBox(fenetrePrincipale, TEXT("inscription"), TEXT("Bonjour."), MB_ICONINFORMATION);
+                    break;
 
-// Gestionnaire de messages pour la boîte de dialogue À propos de.
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-	UNREFERENCED_PARAMETER(lParam);
-	switch (message)
-	{
-	case WM_INITDIALOG:
-		return (INT_PTR)TRUE;
+                case ID_CONNEXION_BOUTON_CONNEXION:
+					int login_len = SendMessage(fenetreConnexion_EditTextLogin, WM_GETTEXTLENGTH, 0, 0);
+					LPTSTR login = new TCHAR[login_len];; 
+					Edit_GetText(fenetreConnexion_EditTextLogin, login, login_len+1);
+					
+					int mdp_len = SendMessage(fenetreConnexion_EditTextMdp, WM_GETTEXTLENGTH, 0, 0);
+					LPTSTR mdp = new TCHAR[mdp_len];; 
+					Edit_GetText(fenetreConnexion_EditTextMdp, mdp, mdp_len+1);
 
-	case WM_COMMAND:
-		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-		{
-			EndDialog(hDlg, LOWORD(wParam));
-			return (INT_PTR)TRUE;
-		}
-		break;
-	}
-	return (INT_PTR)FALSE;
+					using namespace std;
+
+					string text = "login : "+(string)login+"\nmdp : "+(string)mdp;
+					//TODO coder la connexion et rajouter le model
+					MessageBox(fenetrePrincipale, text.c_str(), TEXT("Bonjour."), MB_ICONINFORMATION);
+                    break;
+            }
 }
