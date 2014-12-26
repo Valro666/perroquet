@@ -133,6 +133,7 @@ LRESULT CALLBACK procedureFenetreInscription(HWND fenetre, UINT message, WPARAM 
 		case WM_SHOWWINDOW :
 			//on rafraichie la vue si besoin
 			
+				if(wParam)
 					MessageBox(fenetre, TEXT("show inscription"), TEXT("Bonjour."), MB_ICONINFORMATION);
 			return 0;
         case WM_CREATE:
