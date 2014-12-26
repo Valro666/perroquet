@@ -5,6 +5,7 @@ class Compte
 		Compte(void);
 		~Compte(void);
 		Compte(TCHAR id , TCHAR pw);
+		Compte(const Compte &);
 		TCHAR getIdentifiant() const;
 		TCHAR getPassword() const;
 		TCHAR getTampon() const;

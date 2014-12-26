@@ -11,6 +11,8 @@ Compte::~Compte(void)
 {
 }
 
+
+
 Compte::Compte(TCHAR id , TCHAR pw){
 	identifiant = id ;
 	password = pw ;
@@ -31,6 +33,12 @@ Compte::Compte(TCHAR id , TCHAR pw){
 	}
 	*/
 };
+
+Compte::Compte(const Compte &c){
+	identifiant = c.getIdentifiant ;
+	password = c.getPassword ;
+	
+}
 
 TCHAR Compte::getIdentifiant() const{
 	return identifiant;
