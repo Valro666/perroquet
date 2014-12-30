@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{67FFDA74-6A1E-423D-BBF0-F8ED257D0C15}</ProjectGuid>
+    <ProjectGuid>{167BA7FB-47D6-487D-9D40-8A6D26CA7821}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Perroquet</RootNamespace>
   </PropertyGroup>
