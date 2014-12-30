@@ -22,13 +22,19 @@ HINSTANCE instance;
 HWND getFenetreConnexion();
 HWND getFenetreInscription();
 
+HWND getFenetreVueEtudiant();
+
 //declaration des procedures de gestion des fenetres
 LRESULT CALLBACK procedureFenetreConnexion(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK procedureFenetreInscription(HWND, UINT, WPARAM, LPARAM);
 
+LRESULT CALLBACK procedureFenetreVueEtudiant(HWND, UINT, WPARAM, LPARAM);
+
 //declaration des fonctions de construction des vues
 VOID buildFenetreConnexion(HWND fenetrePrincipale);
 VOID buildFenetreInscription(HWND fenetrePrincipale);
+
+VOID buildFenetreVueEtudiant(HWND fenetrePrincipale);
 
 //declaration des fonctionsde commande
 VOID commandFenetreConnexion(HWND fenetrePrincipale, WPARAM wParam);
@@ -105,7 +111,53 @@ HWND getFenetreInscription(){
 	}
 	return rep;
 }
+
+HWND getFenetreVueEtudiant(){
+
+	HWND rep;
+	WNDCLASS classeFenetre;
+
+    classeFenetre.style = 0;
+    classeFenetre.lpfnWndProc = procedureFenetreVueEtudiant;
+    classeFenetre.cbClsExtra = 0;
+    classeFenetre.cbWndExtra = 0;
+    classeFenetre.hInstance = NULL;
+    classeFenetre.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    classeFenetre.hCursor = LoadCursor(NULL, IDC_ARROW);
+    classeFenetre.hbrBackground = (HBRUSH)(1 + COLOR_BTNFACE);
+    //classeFenetre.lpszMenuName =  TEXT("ID_MENU_INSCRIPTION");
+    classeFenetre.lpszClassName = TEXT("classeFVueEtudiant");
+
+    // On prévoit quand même le cas où ça échoue
+    if(RegisterClass(&classeFenetre)){
+    rep = CreateWindow(TEXT("classeFVueEtudiant"), TEXT("Perroquet - VueEtudiant"), WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
+                                   CW_USEDEFAULT, CW_USEDEFAULT, 400, 300,
+                                                   NULL, NULL, instance, NULL);
+	}
+	return rep;
+
+}
+
 //procedure des fenetre :
+
+LRESULT CALLBACK procedureFenetreVueEtudiant(HWND fenetre, UINT message, WPARAM wParam, LPARAM lParam){
+	switch (message)
+    {
+		case WM_SHOWWINDOW :
+			//on rafraichie la vue si besoin
+			return 0;
+        case WM_CREATE:
+			buildFenetreVueEtudiant(fenetre);
+            return 0;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            return 0;
+		case WM_COMMAND:
+			commandFenetreConnexion(fenetre,wParam);
+        default:
+            return DefWindowProc(fenetre, message, wParam, lParam);
+    }
+}
 
 LRESULT CALLBACK procedureFenetreConnexion(HWND fenetre, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -151,6 +203,10 @@ LRESULT CALLBACK procedureFenetreInscription(HWND fenetre, UINT message, WPARAM 
 }
 
 //fonction de constructon des vues :
+
+VOID buildFenetreVueEtudiant(HWND fenetrePrincipale){
+
+}
 
 VOID buildFenetreConnexion(HWND fenetrePrincipale){
 	HWND label1 = CreateWindow(
