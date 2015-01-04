@@ -13,9 +13,11 @@ Cours::~Cours(void)
 
 
 
-Cours::Cours(Enseignant cpt , int lim){
+Cours::Cours(Enseignant cpt , int lim, bool acc, string inti){
 	limite = lim ;
 	compte = cpt ;
+	accepte = acc;
+	intitule = inti ;
 	
 };
 
@@ -27,6 +29,14 @@ Enseignant Cours::getEnseignant() const{
 
 int Cours::getLimite() const{
 	return limite;
+}
+
+bool Cours::getAccepte() const{
+	return accepte;
+}
+
+string Cours::getIntitule() const{
+	return intitule;
 }
 
 Ressource Cours::getRessource(int index) {	
@@ -55,6 +65,14 @@ int Cours::getSizelEtu() {
 
 void Cours::setLimite(int lim){
 	limite = lim;
+}
+
+void Cours::setIntitule(string inti){
+	intitule = inti;
+}
+
+void Cours::setAccepte(){
+	accepte = !accepte;
 }
 
 void Cours::setEnseignant(Enseignant ens){
