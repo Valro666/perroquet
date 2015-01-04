@@ -31,9 +31,13 @@ int Cours::getLimite() const{
 
 Ressource Cours::getRessource(int index) {
 	std::list<Ressource>::iterator it = lRess.begin();
-	std::advance(it, index);
-	
-		
+	std::advance(it, index);	
+	return *it ;
+}
+
+Devoir Cours::getDevoir(int index) {
+	std::list<Devoir>::iterator it = lDev.begin();
+	std::advance(it, index);	
 	return *it ;
 }
 
@@ -47,6 +51,10 @@ void Cours::setEnseignant(Enseignant ens){
 
 void Cours::ajouterRessource(Ressource ress){
 	lRess.push_back(ress);
+}
+
+void Cours::ajouterDevoir(Devoir dev){
+	lDev.push_back(dev);
 }
 
 
