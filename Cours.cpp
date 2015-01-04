@@ -41,6 +41,36 @@ Devoir Cours::getDevoir(int index) {
 	return *it ;
 }
 
+Etudiant Cours::getEtudiant(int index) {
+	std::list<Etudiant>::iterator it = lEtu.begin();
+	std::advance(it, index);	
+	return *it ;
+}
+
+int Cours::getSizelRess() {
+	int compt = 0;
+	for (std::list<Ressource>::iterator it = lRess.begin(); it != lRess.end(); ++it){
+		compt++;
+	}
+	return compt;
+}
+
+int Cours::getSizelDev() {
+	int compt = 0;
+	for (std::list<Devoir>::iterator it = lDev.begin(); it != lDev.end(); ++it){
+		compt++;
+	}
+	return compt;
+}
+
+int Cours::getSizelEtu() {
+	int compt = 0;
+	for (std::list<Etudiant>::iterator it = lEtu.begin(); it != lEtu.end(); ++it){
+		compt++;
+	}
+	return compt;
+}
+
 void Cours::setLimite(int lim){
 	limite = lim;
 }
@@ -55,6 +85,10 @@ void Cours::ajouterRessource(Ressource ress){
 
 void Cours::ajouterDevoir(Devoir dev){
 	lDev.push_back(dev);
+}
+
+void Cours::ajouterEtudiant(Etudiant etu){
+	lEtu.push_back(etu);
 }
 
 
