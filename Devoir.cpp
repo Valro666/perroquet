@@ -25,6 +25,14 @@ Note Devoir::getNote(int index) {
 	return *it ;
 }
 
+int Devoir::getSizelNotes() {
+	int compt = 0;
+	for (std::list<Note>::iterator it = lNotes.begin(); it != lNotes.end(); ++it){
+		compt++;
+	}
+	return compt;
+}
+
 void Devoir::setIntitule(string inti){
 	intitule = inti;
 }
