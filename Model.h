@@ -8,6 +8,7 @@ public:
 	~Model(void);
 	bool connexion(string identifiant, string mdp);
     bool inscription(string identifiant, string mdp, int status);
+	Compte getSession();
 //             void accepterCours(int indiceCours);
 //             void refuserCours(int indiceCours);
 //             void ouvrirInscription(int indiceCours);
@@ -15,9 +16,9 @@ public:
 //             void ajouterRessource(int indiceCours, Ressource elem);
 //             void ajouterDevoir(int indiceCours, Devoir elem);
 //             void ajouterDepot(int indiceCours, Depot elem);
-//             //void proposerCours(Cours c);
-//             void accepterCompte(int indiceCompte);
-//             void refuserCompte(int indiceCompte);
+//             void proposerCours(Cours c);
+             void accepterCompte(int indiceCompte);
+             void refuserCompte(int indiceCompte);
 //             void ouvrirDepot(int indiceDepot, int indiceCours);
 //             void fermerDepot(int indiceDepot, int indiceCours);
 //             void retirerElement(int indiceDepot, int indiceCours);
@@ -39,7 +40,7 @@ public:
 //             std::vector<Compte> geListDemandeCompte();
 //             std::vector<Cours> getCoursEnseigne() ;
 //             std::vector<Cours> geListPropositionCours() ;
-private:
+public:
 	int typeAjout;
 	Compte session;
 	vector<Compte> listCompte;

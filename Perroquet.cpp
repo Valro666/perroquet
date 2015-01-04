@@ -18,6 +18,8 @@ HWND fenetreInscription_EditTextLogin;
 HWND fenetreInscription_EditTextMdp;
 HWND fenetreInscription_EditTextMdpConfirm;
 
+HWND fenetreVueEtudiant;
+
 
 HWND fenetreAjout;
 
@@ -44,6 +46,7 @@ VOID buildFenetreAjout(HWND fenetrePrincipale);
 //declaration des fonctionsde commande
 VOID commandFenetreConnexion(HWND fenetrePrincipale, WPARAM wParam);
 VOID commandFenetreInscription(HWND fenetrePrincipale, WPARAM wParam);
+VOID commandFenetreVueEtudiant(HWND fenetrePrincipale, WPARAM wParam);
 VOID commandFenetreAjout(HWND fenetrePrincipale, WPARAM wParam);
 
 int APIENTRY WinMain(HINSTANCE cetteInstance, HINSTANCE precedenteInstance,
@@ -56,9 +59,10 @@ LPSTR lignesDeCommande, int modeDAffichage)
     fenetreConnexion = getFenetreConnexion();
 	fenetreInscription = getFenetreInscription();
 	fenetreAjout = getFenetreAjout();
+	fenetreVueEtudiant = getFenetreVueEtudiant();
 	if (!fenetreConnexion) return FALSE;
 	//mettre ici dans le showwindows la fenetre que le veut tester sinon mettre fenetreConnexion pour un comportement normal
-    ShowWindow(fenetreConnexion, modeDAffichageFenetre);
+    ShowWindow(fenetreVueEtudiant, modeDAffichageFenetre);
 	ShowWindow(fenetreInscription, SW_HIDE);
     UpdateWindow(fenetreConnexion);
 
@@ -133,7 +137,7 @@ HWND getFenetreVueEtudiant(){
     classeFenetre.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     classeFenetre.hCursor = LoadCursor(NULL, IDC_ARROW);
     classeFenetre.hbrBackground = (HBRUSH)(1 + COLOR_BTNFACE);
-    //classeFenetre.lpszMenuName =  TEXT("ID_MENU_INSCRIPTION");
+    classeFenetre.lpszMenuName =  TEXT("ID_MENU_VUE_ETUDIANT");
     classeFenetre.lpszClassName = TEXT("classeFVueEtudiant");
 
     // On prévoit quand même le cas où ça échoue
@@ -256,9 +260,7 @@ LRESULT CALLBACK procedureFenetreAjout(HWND fenetre, UINT message, WPARAM wParam
 
 //fonction de constructon des vues :
 
-VOID buildFenetreVueEtudiant(HWND fenetrePrincipale){
 
-}
 
 VOID buildFenetreConnexion(HWND fenetrePrincipale){
 	HWND label1 = CreateWindow(
@@ -459,8 +461,79 @@ VOID buildFenetreAjout(HWND fenetrePrincipale){
         instance,
         NULL);
 }
+VOID buildFenetreVueEtudiant(HWND fenetrePrincipale){
+	string s = modele.getSession().getIdentifiant();
+	HWND label1 = CreateWindow(
+		TEXT("STATIC"),
+		TEXT(" "),
+		WS_VISIBLE | WS_CHILD | ES_RIGHT,
+		60,42,
+		120,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
+	
+
+	HWND label2 = CreateWindow(
+		TEXT("STATIC"),
+		TEXT("Mot de passe :"),
+		WS_VISIBLE | WS_CHILD | ES_RIGHT,
+		80,72,
+		100,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
+	
+	HWND label3 = CreateWindow(
+		TEXT("STATIC"),
+		TEXT("Confirmer mot de passe :"),
+		WS_VISIBLE | WS_CHILD | ES_RIGHT,
+		15,102,
+		165,20,
+        fenetrePrincipale,
+        NULL,
+        instance,
+        NULL);
+	
+	HWND boutonConnexion =CreateWindow(
+		TEXT("BUTTON"),
+        TEXT("Inscription"),
+        WS_CHILD|WS_VISIBLE ,
+        100,140,
+        160,20,
+        fenetrePrincipale,
+        (HMENU)ID_INSCRIPTION_BOUTON_INSCRIPTION,
+        instance,
+        NULL);
+}
 
 //fonctions de commande :
+VOID commandFenetreVueEtudiant(HWND fenetrePrincipale, WPARAM wParam){
+	switch(LOWORD(wParam))
+            {
+                case ID_CONNEXION_MENUITEM_INSCRIPTION:
+					ShowWindow(fenetreConnexion, SW_HIDE);
+					ShowWindow(fenetreInscription, modeDAffichageFenetre);
+                    break;
+
+                case ID_CONNEXION_BOUTON_CONNEXION:
+					int login_len = SendMessage(fenetreConnexion_EditTextLogin, WM_GETTEXTLENGTH, 0, 0);
+					LPTSTR login = new TCHAR[login_len];; 
+					Edit_GetText(fenetreConnexion_EditTextLogin, login, login_len+1);
+					
+					int mdp_len = SendMessage(fenetreConnexion_EditTextMdp, WM_GETTEXTLENGTH, 0, 0);
+					LPTSTR mdp = new TCHAR[mdp_len];; 
+					Edit_GetText(fenetreConnexion_EditTextMdp, mdp, mdp_len+1);
+					//bool connecter = modele.connexion((TCHAR)login, (TCHAR)mdp);
+					//if(connecter){
+						ShowWindow(fenetreConnexion, SW_HIDE);
+						ShowWindow(fenetreAjout, modeDAffichageFenetre);
+					//}
+                    break;
+            }
+}
 VOID commandFenetreConnexion(HWND fenetrePrincipale, WPARAM wParam){
 	switch(LOWORD(wParam))
             {

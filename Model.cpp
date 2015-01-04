@@ -2,9 +2,14 @@
 #include "Compte.h"
 #include "Admin.h"
 #include "Etudiant.h"
+#include "Attente.h"
 #include "Enseignant.h"
 #include <vector>
 #include "Model.h"
+#include <iostream>
+using namespace std;
+
+
 
 
 Model::Model(void)
@@ -13,12 +18,29 @@ Model::Model(void)
 	listCompte.push_back(Admin("admin","admin"));
 	listCompte.push_back(Etudiant("etud","etud"));
 	listCompte.push_back(Enseignant("prof","prof"));
+	listCompte.push_back(Attente("att","att",1));
+	session = listCompte[0];
+	cout << listCompte.size() << endl;
+	//accepterCompte(0);
+	//refuserCompte(0);
+
+	for(int i = 0 ; i <listCompte.size();i++ ){
+		cout << listCompte[i].getIdentifiant() << endl;
+	}
+
+
 }
 
 
 Model::~Model(void)
 {
 }
+
+Compte Model::getSession(){
+			 return session;
+		 }
+
+
 
 bool Model::connexion(string identifiant, string mdp){
     int unsigned i = 0;
@@ -64,19 +86,24 @@ bool Model::inscription(string identifiant, string mdp, int status){
 //Model::void ajouterDevoir(int indiceCours, Devoir elem);
 //Model::void ajouterDepot(int indiceCours, Depot elem);
 //Model::void proposerCours(Cours c);
-/*
+
 void Model::accepterCompte(int indiceCompte){
-    if(listCompte[indiceCompte] typeof Attente){
-         Attente a = (Attente) listCompte[indiceCompte];
+   // if(typeinfo(listCompte[indiceCompte])== typeid(Attente)){
+		cout << "yep" << endl;
+		/*((Attente)(listCompte[indiceCompte])).getStatus();
+         Attente a;// = dynamic_cast<Attente&>(listCompte[indiceCompte]);
+		 cout << "status : "<< a.getStatus() << endl;
          switch(a.getStatus()){
-              case
-         }
-    }
-    else{ //le compte donner n'est pas en attente
-    }
+		 case 1 : cout << "youpi" << endl; break;
+         }*/
+   // }
+   // else{ //le compte donner n'est pas en attente
+   // }
 }
-*/
-//Model::void refuserCompte(int indiceCompte);
+
+void Model::refuserCompte(int indiceCompte){
+	listCompte.erase(listCompte.begin()+indiceCompte);
+}
 //Model::void ouvrirDepot(int indiceDepot, int indiceCours);
 //Model::void fermerDepot(int indiceDepot, int indiceCours);
 //Model::void retirerElement(int indiceDepot, int indiceCours);

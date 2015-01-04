@@ -7,13 +7,14 @@ Attente::Attente(void)
 }
 
 
-Attente::~Attente(void)
+ Attente::~Attente(void)
 {
 }
 
 Attente::Attente(string nom, string pw, int i) : Compte(nom, pw)
 {
     status = i;
+	cout << "status : " <<status << endl;
 }
 
 int Attente::getStatus(){
@@ -23,3 +24,7 @@ int Attente::getStatus(){
 void Attente::setStatus(int i){
 	status = i;
 }
+
+
+
+	

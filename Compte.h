@@ -1,9 +1,12 @@
 #pragma once
 #include <string>
 using namespace std;
+#include <iostream>
+#include<typeinfo>
 class Compte
 {
 	public:
+		//virtual void foo() = 0;
 		Compte(void);
 		~Compte(void);
 		Compte(string id , string pw);
