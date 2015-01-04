@@ -19,18 +19,12 @@ string Devoir::getIntitule() const{
 	return intitule; 
 }
 
-Note Devoir::getNote(int index) {
-	std::list<Note>::iterator it = lNotes.begin();
-	std::advance(it, index);	
-	return *it ;
+Note Devoir::getNote(int index) {	
+	return lNotes[index] ;
 }
 
 int Devoir::getSizelNotes() {
-	int compt = 0;
-	for (std::list<Note>::iterator it = lNotes.begin(); it != lNotes.end(); ++it){
-		compt++;
-	}
-	return compt;
+	return lNotes.size();
 }
 
 void Devoir::setIntitule(string inti){
