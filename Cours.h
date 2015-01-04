@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <list> 
+#include <vector> 
 #include "Enseignant.h"
 #include "Ressource.h"
 #include "Devoir.h"
@@ -30,7 +30,7 @@ class Cours
 	protected :
 		Enseignant compte ;
 		int limite;
-		list<Ressource> lRess;
-		list<Devoir> lDev;
-		list<Etudiant> lEtu;
+		vector<Ressource> lRess;
+		vector<Devoir> lDev;
+		vector<Etudiant> lEtu;
 };
