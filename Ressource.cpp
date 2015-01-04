@@ -11,24 +11,24 @@ Ressource::~Ressource(void)
 {
 }
 
-Ressource::Ressource(TCHAR inti , TCHAR road){
+Ressource::Ressource(string inti , string road){
     intitule = inti;
     chemin = road;
 }
 
-TCHAR Ressource::getChemin() const{
+string Ressource::getChemin() const{
 	return chemin;
 }
 
-TCHAR Ressource::getIntitule() const{
+string Ressource::getIntitule() const{
 	return intitule;
 }
 
-void Ressource::setChemin(TCHAR road) {
+void Ressource::setChemin(string road) {
 	chemin = road;
 }
 
-void Ressource::setIntitule(TCHAR inti){
+void Ressource::setIntitule(string inti){
 	intitule = inti;
 }
 
