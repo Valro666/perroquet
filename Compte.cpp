@@ -13,25 +13,10 @@ Compte::~Compte(void)
 
 
 
-Compte::Compte(TCHAR id , TCHAR pw){
+Compte::Compte(string id , string pw){
 	identifiant = id ;
 	password = pw ;
-	/* on essaye de faire sans
-    switch(type){
-         case COMPTE_ETUDIANT : 
-              status = COMPTE_ETUDIANT; 
-              break;
-	     case COMPTE_ENSEIGNANT : 
-              status = COMPTE_ENSEIGNANT; 
-              break;
-	     case COMPTE_ADMIN : 
-              status = COMPTE_ADMIN; 
-              break;
-	     default : 
-              status = 42; 
-              break;
-	}
-	*/
+	
 };
 
 Compte::Compte(const Compte &c){
@@ -40,26 +25,26 @@ Compte::Compte(const Compte &c){
 	
 }
 
-TCHAR Compte::getIdentifiant() const{
+string Compte::getIdentifiant() const{
 	return identifiant;
 }
 
-TCHAR Compte::getPassword() const{
+string Compte::getPassword() const{
 	return password;
 }
 
-TCHAR Compte::getTampon() const{
+string Compte::getTampon() const{
 	return tampon ;
 }
 
-void Compte::setTampon(TCHAR s){
+void Compte::setTampon(string s){
 	tampon = s;
 }
 
-void Compte::setIdentifiant(TCHAR s){
+void Compte::setIdentifiant(string s){
 	identifiant = s;
 }
 
-void Compte::setPassword(TCHAR s){
+void Compte::setPassword(string s){
 	password = s;
 }

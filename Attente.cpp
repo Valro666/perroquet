@@ -11,7 +11,7 @@ Attente::~Attente(void)
 {
 }
 
-Attente::Attente(TCHAR nom, TCHAR pw, int i) : Compte(nom, pw)
+Attente::Attente(string nom, string pw, int i) : Compte(nom, pw)
 {
     status = i;
 }

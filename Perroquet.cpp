@@ -7,7 +7,7 @@
 
 //declaration des variables
 int modeDAffichageFenetre;
-//Model modele;
+Model modele;//n'est pas initialiser a null 
 
 HWND fenetreConnexion;
 HWND fenetreConnexion_EditTextLogin;
@@ -49,7 +49,7 @@ VOID commandFenetreAjout(HWND fenetrePrincipale, WPARAM wParam);
 int APIENTRY WinMain(HINSTANCE cetteInstance, HINSTANCE precedenteInstance,
 LPSTR lignesDeCommande, int modeDAffichage)
 {
-	//modele = Model();
+	//modele = Model(); inutil car deja initialiser plus haut
 	modeDAffichageFenetre = modeDAffichage;
 	instance = cetteInstance;
     MSG message;

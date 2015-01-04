@@ -1,11 +1,13 @@
 #pragma once
+#include "Compte.h"
+#include <vector>
 class Model
 {
 public:
 	Model(void);
 	~Model(void);
-	bool connexion(TCHAR identifiant, TCHAR mdp);
-    bool inscription(TCHAR identifiant, TCHAR mdp, int status);
+	bool connexion(string identifiant, string mdp);
+    bool inscription(string identifiant, string mdp, int status);
 //             void accepterCours(int indiceCours);
 //             void refuserCours(int indiceCours);
 //             void ouvrirInscription(int indiceCours);
@@ -39,7 +41,7 @@ public:
 //             std::vector<Cours> geListPropositionCours() ;
 private:
 	int typeAjout;
-	//Compte session;
-	//vector<Compte> listCompte;
+	Compte session;
+	vector<Compte> listCompte;
 };
 

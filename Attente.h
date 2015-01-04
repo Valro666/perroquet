@@ -8,7 +8,7 @@ class Attente :
 	public :
 		Attente(void);
 		~Attente(void);
-		Attente(TCHAR id , TCHAR pw, int i);
+		Attente(string id , string pw, int i);
 		int getStatus();
 		void setStatus(int i);
 };

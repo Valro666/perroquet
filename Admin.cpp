@@ -10,6 +10,6 @@ Admin::~Admin(void)
 {
 }
 
-Admin::Admin(TCHAR nom, TCHAR pw) : Compte(nom, pw)
+Admin::Admin(string nom, string pw) : Compte(nom, pw)
 {   
 }

@@ -10,14 +10,17 @@
 Model::Model(void)
 {
     typeAjout = TYPE_RESSOURCE;
+	listCompte.push_back(Admin("admin","admin"));
+	listCompte.push_back(Etudiant("etud","etud"));
+	listCompte.push_back(Enseignant("prof","prof"));
 }
 
 
 Model::~Model(void)
 {
 }
-/*
-bool Model::connexion(TCHAR identifiant, TCHAR mdp){
+
+bool Model::connexion(string identifiant, string mdp){
     int unsigned i = 0;
     bool trouv = false;
     while(i<listCompte.size() && !trouv){
@@ -31,7 +34,7 @@ bool Model::connexion(TCHAR identifiant, TCHAR mdp){
     }
     return trouv;
 }
-
+/*
 bool Model::inscription(TCHAR identifiant, TCHAR mdp, int status){
 	bool rep = true;
     switch(status){

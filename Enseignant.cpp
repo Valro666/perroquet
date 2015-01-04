@@ -11,6 +11,6 @@ Enseignant::~Enseignant(void)
 {
 }
 
-Enseignant::Enseignant(TCHAR nom, TCHAR pw) : Compte(nom, pw)
+Enseignant::Enseignant(string nom, string pw) : Compte(nom, pw)
 {
 }

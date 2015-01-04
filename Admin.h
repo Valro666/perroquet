@@ -6,6 +6,6 @@ class Admin :
 public:
 	Admin(void);
 	~Admin(void);
-	Admin(TCHAR id , TCHAR pw);
+	Admin(string id , string pw);
 };
 

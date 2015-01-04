@@ -1,20 +1,22 @@
 #pragma once
+#include <string>
+using namespace std;
 class Compte
 {
 	public:
 		Compte(void);
 		~Compte(void);
-		Compte(TCHAR id , TCHAR pw);
+		Compte(string id , string pw);
 		Compte(const Compte &);
-		TCHAR getIdentifiant() const;
-		TCHAR getPassword() const;
-		TCHAR getTampon() const;
-		void setTampon(TCHAR s);
-		void setIdentifiant(TCHAR s);
-		void setPassword(TCHAR s);
+		string getIdentifiant() const;
+		string getPassword() const;
+		string getTampon() const;
+		void setTampon(string s);
+		void setIdentifiant(string s);
+		void setPassword(string s);
 	protected :
-		TCHAR identifiant ;
-		TCHAR password;
-		TCHAR tampon;
+		string identifiant ;
+		string password;
+		string tampon;
 };
 

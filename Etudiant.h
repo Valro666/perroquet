@@ -6,6 +6,6 @@ class Etudiant :
 public:
 	Etudiant(void);
 	~Etudiant(void);
-	Etudiant(TCHAR id , TCHAR pw);
+	Etudiant(string id , string pw);
 };
 
