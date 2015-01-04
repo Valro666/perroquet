@@ -85,7 +85,18 @@ bool Model::inscription(string identifiant, string mdp, int status){
 //Model::void ajouterRessource(int indiceCours, Ressource elem);
 //Model::void ajouterDevoir(int indiceCours, Devoir elem);
 //Model::void ajouterDepot(int indiceCours, Depot elem);
-//Model::void proposerCours(Cours c);
+
+Cours Model::getCours(int index){
+	return listCours[index];
+}
+
+void Model::ajouterCours(Cours c){
+	listCours.push_back(c);
+}
+
+void Model::proposerCours(Cours c){
+	ajouterCours(c);
+}
 
 void Model::accepterCompte(int indiceCompte){
    // if(typeinfo(listCompte[indiceCompte])== typeid(Attente)){

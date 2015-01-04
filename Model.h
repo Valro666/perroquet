@@ -1,5 +1,6 @@
 #pragma once
 #include "Compte.h"
+#include "Cours.h"
 #include <vector>
 class Model
 {
@@ -16,7 +17,7 @@ public:
 //             void ajouterRessource(int indiceCours, Ressource elem);
 //             void ajouterDevoir(int indiceCours, Devoir elem);
 //             void ajouterDepot(int indiceCours, Depot elem);
-//             void proposerCours(Cours c);
+             void proposerCours(Cours c);
              void accepterCompte(int indiceCompte);
              void refuserCompte(int indiceCompte);
 //             void ouvrirDepot(int indiceDepot, int indiceCours);
@@ -40,9 +41,12 @@ public:
 //             std::vector<Compte> geListDemandeCompte();
 //             std::vector<Cours> getCoursEnseigne() ;
 //             std::vector<Cours> geListPropositionCours() ;
+			 void ajouterCours(Cours c);
+			 Cours getCours (int index);
 public:
 	int typeAjout;
 	Compte session;
 	vector<Compte> listCompte;
+	vector<Cours> listCours;
 };
 
