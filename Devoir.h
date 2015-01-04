@@ -13,7 +13,7 @@ class Devoir
 
 		string getIntitule() const;
 		Note getNote(int index) ;
-		
+		int getSizelNotes();
 		void setIntitule(string inti);
 		
 		void ajouterNote(Note n);
