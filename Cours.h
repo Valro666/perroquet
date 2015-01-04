@@ -3,6 +3,7 @@
 #include <list> 
 #include "Enseignant.h"
 #include "Ressource.h"
+#include "Devoir.h"
 using namespace std;
 class Cours
 {
@@ -14,12 +15,16 @@ class Cours
 		int getLimite() const;
 		Enseignant getEnseignant() const;
 		Ressource getRessource (int index);
+		Devoir getDevoir (int index);
 
 		void setLimite(int lim);
 		void setEnseignant(Enseignant ens);
 		void ajouterRessource(Ressource ress);
+		void ajouterDevoir(Devoir dev);
+
 	protected :
 		Enseignant compte ;
 		int limite;
 		list<Ressource> lRess;
+		list<Devoir> lDev;
 };
