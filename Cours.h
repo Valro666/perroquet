@@ -16,15 +16,21 @@ class Cours
 		Enseignant getEnseignant() const;
 		Ressource getRessource (int index);
 		Devoir getDevoir (int index);
+		Etudiant getEtudiant (int index);
+		int getSizelRess();
+		int getSizelDev();
+		int getSizelEtu();
 
 		void setLimite(int lim);
 		void setEnseignant(Enseignant ens);
 		void ajouterRessource(Ressource ress);
 		void ajouterDevoir(Devoir dev);
+		void ajouterEtudiant(Etudiant etu);
 
 	protected :
 		Enseignant compte ;
 		int limite;
 		list<Ressource> lRess;
 		list<Devoir> lDev;
+		list<Etudiant> lEtu;
 };
