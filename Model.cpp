@@ -34,8 +34,8 @@ bool Model::connexion(string identifiant, string mdp){
     }
     return trouv;
 }
-/*
-bool Model::inscription(TCHAR identifiant, TCHAR mdp, int status){
+
+bool Model::inscription(string identifiant, string mdp, int status){
 	bool rep = true;
     switch(status){
         case COMPTE_ADMIN :{
@@ -55,7 +55,7 @@ bool Model::inscription(TCHAR identifiant, TCHAR mdp, int status){
 	//TODO modifier pour mettre rep a false si l'id existe deja
 	return rep;
 }
-*/
+
 //Model::void accepterCours(int indiceCours);
 //Model::void refuserCours(int indiceCours);
 //Model::void ouvrirInscription(int indiceCours);
