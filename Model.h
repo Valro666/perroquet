@@ -34,13 +34,13 @@ public:
 //             chaine getNotesDevoir(int indiceCours, int indiceDevoir);
 //             void inscriptionCours(int indiceCours);
 //             void deinscriptionCours(int indiceCours);
-//             std::vector<Cours> getCoursASuivre() ;
-//             std::vector<Cours> getCoursSuivie() ;
+             std::vector<Cours> getCoursASuivre() ;
+             std::vector<Cours> getCoursSuivi() ;
 //             std::vector<Depot> getListDepot(int indiceCours) ;
 //             std::vector<int> getListNote(int indiceCours) ;
 //             std::vector<Compte> geListDemandeCompte();
-//             std::vector<Cours> getCoursEnseigne() ;
-//             std::vector<Cours> geListPropositionCours() ;
+             std::vector<Cours> getCoursEnseigne() ;
+             std::vector<Cours> geListPropositionCours() ;
 			 void ajouterCours(Cours c);
 			 Cours getCours (int index);
 public:
