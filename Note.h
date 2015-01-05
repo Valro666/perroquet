@@ -1,18 +1,18 @@
 #pragma once
 #include <string>
-#include"Etudiant.h"
+#include"Compte.h"
 using namespace std;
 class Note
 {
 	public:
 		Note(void);
 		
-		Note(Etudiant etu, int n );
-		Etudiant getEtudiant() const;
+		Note(Compte etu, int n );
+		Compte getEtudiant() const;
 		int getNote() const;
-		void setEtudiant(Etudiant etu);
+		void setEtudiant(Compte etu);
 		void setNote(int n);
 	protected :
-		Etudiant etudiant ;
+		Compte etudiant ;
 		int note;
 };

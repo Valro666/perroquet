@@ -6,7 +6,7 @@ Cours::Cours(void)
 {
 }
 
-Cours::Cours(Enseignant cpt , int lim, bool acc, string inti){
+Cours::Cours(Compte cpt , int lim, bool acc, string inti){
 	limite = lim ;
 	compte = cpt ;
 	accepte = acc;
@@ -14,7 +14,7 @@ Cours::Cours(Enseignant cpt , int lim, bool acc, string inti){
 	
 };
 
-Enseignant Cours::getEnseignant() const{
+Compte Cours::getEnseignant() const{
 	return compte; 
 }
 
@@ -38,7 +38,7 @@ Devoir Cours::getDevoir(int index) {
 	return lDev[index] ;
 }
 
-Etudiant Cours::getEtudiant(int index) {	
+Compte Cours::getEtudiant(int index) {	
 	return lEtu[index] ;
 }
 
@@ -66,7 +66,7 @@ void Cours::setAccepte(){
 	accepte = !accepte;
 }
 
-void Cours::setEnseignant(Enseignant ens){
+void Cours::setEnseignant(Compte ens){
 	compte = ens;
 }
 
@@ -78,7 +78,7 @@ void Cours::ajouterDevoir(Devoir dev){
 	lDev.push_back(dev);
 }
 
-void Cours::ajouterEtudiant(Etudiant etu){
+void Cours::ajouterEtudiant(Compte etu){
 	lEtu.push_back(etu);
 }
 

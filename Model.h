@@ -8,7 +8,7 @@ public:
 	Model(void);
 	~Model(void);
 	bool connexion(string identifiant, string mdp);
-    bool inscription(string identifiant, string mdp, int status);
+    bool inscription(Compte c);
 	Compte getSession();
 //             void accepterCours(int indiceCours);
 //             void refuserCours(int indiceCours);
@@ -17,7 +17,7 @@ public:
 //             void ajouterRessource(int indiceCours, Ressource elem);
 //             void ajouterDevoir(int indiceCours, Devoir elem);
 //             void ajouterDepot(int indiceCours, Depot elem);
-             void proposerCours(Cours c);
+           void proposerCours(Cours c);
              void accepterCompte(int indiceCompte);
              void refuserCompte(int indiceCompte);
 //             void ouvrirDepot(int indiceDepot, int indiceCours);
@@ -34,7 +34,7 @@ public:
 //             chaine getNotesDevoir(int indiceCours, int indiceDevoir);
 //             void inscriptionCours(int indiceCours);
 //             void deinscriptionCours(int indiceCours);
-             std::vector<Cours> getCoursASuivre() ;
+            std::vector<Cours> getCoursASuivre() ;
              std::vector<Cours> getCoursSuivi() ;
 //             std::vector<Depot> getListDepot(int indiceCours) ;
 //             std::vector<int> getListNote(int indiceCours) ;

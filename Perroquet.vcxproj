@@ -74,26 +74,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Admin.cpp" />
-    <ClCompile Include="Attente.cpp" />
     <ClCompile Include="Compte.cpp" />
+    <ClCompile Include="Cours.cpp" />
     <ClCompile Include="Depot.cpp" />
-    <ClCompile Include="Enseignant.cpp" />
-    <ClCompile Include="Etudiant.cpp" />
+    <ClCompile Include="Devoir.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Note.cpp" />
     <ClCompile Include="Perroquet.cpp" />
     <ClCompile Include="Ressource.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Admin.h" />
-    <ClInclude Include="Attente.h" />
     <ClInclude Include="Compte.h" />
     <ClInclude Include="Constante.h" />
+    <ClInclude Include="Cours.h" />
     <ClInclude Include="Depot.h" />
-    <ClInclude Include="Enseignant.h" />
-    <ClInclude Include="Etudiant.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="Note.h" />
     <ClInclude Include="Perroquet.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Ressource.h" />

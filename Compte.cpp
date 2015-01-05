@@ -13,9 +13,11 @@ Compte::~Compte(void)
 
 
 
-Compte::Compte(string id , string pw){
+Compte::Compte(string id , string pw,int a){
 	identifiant = id ;
 	password = pw ;
+	type = COMPTE_ATTENTE ;
+	futur = a;
 	
 };
 
@@ -24,11 +26,15 @@ Compte::Compte(const Compte &c){
 	password = c.getPassword() ;
 	
 }
-
+int Compte::getFuture(){
+	return futur;
+}
 string Compte::getIdentifiant() const{
 	return identifiant;
 }
-
+void Compte::setType(){
+	type=futur;
+}
 string Compte::getPassword() const{
 	return password;
 }

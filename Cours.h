@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector> 
-#include "Enseignant.h"
+#include "Compte.h"
 #include "Ressource.h"
 #include "Devoir.h"
 using namespace std;
@@ -10,33 +10,33 @@ class Cours
 	public:
 		Cours(void);
 		
-		Cours(Enseignant compte , int limite, bool acc, string inti);
+		Cours(Compte compte , int limite, bool acc, string inti);
 		
 		int getLimite() const;
-		Enseignant getEnseignant() const;
+		Compte getEnseignant() const;
 		string getIntitule() const;
 		bool getAccepte() ;
 		Ressource getRessource (int index);
 		Devoir getDevoir (int index);
-		Etudiant getEtudiant (int index);
+		Compte getEtudiant (int index);
 		int getSizelRess();
 		int getSizelDev();
 		int getSizelEtu();
 
 		void setLimite(int lim);
-		void setEnseignant(Enseignant ens);
+		void setEnseignant(Compte ens);
 		void ajouterRessource(Ressource ress);
 		void ajouterDevoir(Devoir dev);
-		void ajouterEtudiant(Etudiant etu);
+		void ajouterEtudiant(Compte etu);
 		void setAccepte();
 		void setIntitule(string inti);
 
 	protected :
-		Enseignant compte ;
+		Compte compte ;
 		int limite;
 		bool accepte;
 		string intitule;
 		vector<Ressource> lRess;
 		vector<Devoir> lDev;
-		vector<Etudiant> lEtu;
+		vector<Compte> lEtu;
 };

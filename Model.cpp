@@ -1,12 +1,9 @@
 #include "StdAfx.h"
 #include "Compte.h"
-#include "Admin.h"
-#include "Etudiant.h"
-#include "Attente.h"
-#include "Enseignant.h"
 #include <vector>
 #include "Model.h"
 #include <iostream>
+#include <typeinfo>
 using namespace std;
 
 
@@ -14,13 +11,13 @@ using namespace std;
 
 Model::Model(void)
 {
-    typeAjout = TYPE_RESSOURCE;
-	listCompte.push_back(Admin("admin","admin"));
-	listCompte.push_back(Etudiant("etud","etud"));
-	listCompte.push_back(Enseignant("prof","prof"));
-	listCompte.push_back(Attente("att","att",1));
-	session = listCompte[0];
-	cout << listCompte.size() << endl;
+   // typeAjout = TYPE_RESSOURCE;
+	listCompte.push_back(Compte("admin","admin",COMPTE_ADMIN));
+	listCompte.push_back(Compte("etud","etud",COMPTE_ETUDIANT));
+	listCompte.push_back(Compte("prof","prof",COMPTE_ENSEIGNANT));
+	listCompte.push_back(Compte("att","att",COMPTE_ATTENTE));
+	//session = listCompte[0];
+	//cout << listCompte.size() << endl;
 	//accepterCompte(0);
 	//refuserCompte(0);
 
@@ -57,23 +54,9 @@ bool Model::connexion(string identifiant, string mdp){
     return trouv;
 }
 
-bool Model::inscription(string identifiant, string mdp, int status){
+bool Model::inscription(Compte c){
 	bool rep = true;
-    switch(status){
-        case COMPTE_ADMIN :{
-            Admin compte(identifiant,mdp);
-            listCompte.insert(listCompte.end(), (Compte)compte);
-            break;
-        }case COMPTE_ENSEIGNANT :{
-            Enseignant compte(identifiant,mdp);
-            listCompte.insert(listCompte.end(), (Compte)compte);
-            break;
-        }case COMPTE_ETUDIANT :{
-            Etudiant compte(identifiant,mdp);
-            listCompte.insert(listCompte.end(), (Compte)compte);
-            break;
-        }
-    }
+    listCompte.push_back(c);
 	//TODO modifier pour mettre rep a false si l'id existe deja
 	return rep;
 }
@@ -99,17 +82,7 @@ void Model::proposerCours(Cours c){
 }
 
 void Model::accepterCompte(int indiceCompte){
-   // if(typeinfo(listCompte[indiceCompte])== typeid(Attente)){
-		cout << "yep" << endl;
-		/*((Attente)(listCompte[indiceCompte])).getStatus();
-         Attente a;// = dynamic_cast<Attente&>(listCompte[indiceCompte]);
-		 cout << "status : "<< a.getStatus() << endl;
-         switch(a.getStatus()){
-		 case 1 : cout << "youpi" << endl; break;
-         }*/
-   // }
-   // else{ //le compte donner n'est pas en attente
-   // }
+   listCompte[indiceCompte].setType();
 }
 
 void Model::refuserCompte(int indiceCompte){

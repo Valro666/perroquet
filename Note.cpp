@@ -9,7 +9,7 @@ Note::Note(void)
 
 
 
-Note::Note(Etudiant etu, int n){
+Note::Note(Compte etu, int n){
 	etudiant = etu ;
 	note = n;
 };
@@ -18,7 +18,7 @@ int Note::getNote() const{
 	return note; 
 }
 
-Etudiant Note::getEtudiant() const{
+Compte Note::getEtudiant() const{
 	return etudiant ;
 }
 
@@ -26,6 +26,6 @@ void Note::setNote(int n){
 	note = n;
 }
 
-void Note::setEtudiant(Etudiant etu){
+void Note::setEtudiant(Compte etu){
 	etudiant = etu;
 }
