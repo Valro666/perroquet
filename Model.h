@@ -10,10 +10,10 @@ public:
 	bool connexion(string identifiant, string mdp);
     bool inscription(Compte c);
 	Compte getSession();
-//             void accepterCours(int indiceCours);
-//             void refuserCours(int indiceCours);
-//             void ouvrirInscription(int indiceCours);
-//             void fermerInscription(int indiceCours);
+             void accepterCours(int indiceCours);
+             void refuserCours(int indiceCours);
+             void ouvrirInscription(int indiceCours);
+             void fermerInscription(int indiceCours);
 //             void ajouterRessource(int indiceCours, Ressource elem);
 //             void ajouterDevoir(int indiceCours, Devoir elem);
 //             void ajouterDepot(int indiceCours, Depot elem);
