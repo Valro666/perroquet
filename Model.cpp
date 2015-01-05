@@ -158,8 +158,16 @@ std::vector<Cours> Model::getCoursSuivi() {
 }
 
 //Model::std::vector<Depot> getListDepot(int indiceCours) ;
-//Model::std::vector<int> getListNote(int indiceCours) ;
-//Model::std::vector<Compte> geListDemandeCompte();
+//Model::std::vector<int> getListNote(int indiceCours) 
+std::vector<Compte> Model::geListDemandeCompte(){
+	std::vector<Compte> lDCompte;
+	for(unsigned int i = 0; i<listCompte.size(); i++){
+		if(listCompte[i].getType()==COMPTE_ATTENTE){
+			lDCompte.push_back(listCompte[i]);
+		}	
+	}
+	return lDCompte;
+}
 std::vector<Cours> Model::getCoursEnseigne() {
 	std::vector<Cours> lCEns;
 	for(unsigned int i = 0; i<listCours.size(); i++){
