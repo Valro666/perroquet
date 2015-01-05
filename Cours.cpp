@@ -91,4 +91,10 @@ void Cours::ajouterEtudiant(Compte etu){
 	lEtu.push_back(etu);
 }
 
+void Cours::supprimerEtudiant(Compte etu){
+	for(unsigned int i=0;lEtu.size();i++){
+		if(lEtu[i].getIdentifiant()==etu.getIdentifiant())lEtu.erase(lEtu.begin()+i);
+	}
+}
+
 
