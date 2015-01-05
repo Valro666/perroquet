@@ -29,6 +29,7 @@ class Cours
 		void ajouterRessource(Ressource ress);
 		void ajouterDevoir(Devoir dev);
 		void ajouterEtudiant(Compte etu);
+		void supprimerEtudiant(Compte etu);
 		void setAccepte();
 		void setOuvert();
 		void setIntitule(string inti);
