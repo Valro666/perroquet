@@ -7,10 +7,6 @@ Devoir::Devoir(void)
 }
 
 
-Devoir::~Devoir(void)
-{
-}
-
 Devoir::Devoir(string inti){
 	intitule =inti ;
 };
