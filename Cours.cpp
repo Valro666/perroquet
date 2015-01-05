@@ -6,11 +6,12 @@ Cours::Cours(void)
 {
 }
 
-Cours::Cours(Compte cpt , int lim, bool acc, string inti){
+Cours::Cours(Compte cpt , int lim, bool acc, string inti,bool ouv){
 	limite = lim ;
 	compte = cpt ;
 	accepte = acc;
 	intitule = inti ;
+	ouvert = ouv;
 	
 };
 
@@ -24,6 +25,10 @@ int Cours::getLimite() const{
 
 bool Cours::getAccepte() {
 	return accepte;
+}
+
+bool Cours::getOuvert() {
+	return ouvert;
 }
 
 string Cours::getIntitule() const{
@@ -64,6 +69,10 @@ void Cours::setIntitule(string inti){
 
 void Cours::setAccepte(){
 	accepte = !accepte;
+}
+
+void Cours::setOuvert(){
+	ouvert = !ouvert;
 }
 
 void Cours::setEnseignant(Compte ens){
