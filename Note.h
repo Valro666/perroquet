@@ -6,7 +6,7 @@ class Note
 {
 	public:
 		Note(void);
-		~Note(void);
+		
 		Note(Etudiant etu, int n );
 		Etudiant getEtudiant() const;
 		int getNote() const;
