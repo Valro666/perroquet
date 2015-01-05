@@ -7,7 +7,7 @@ class Devoir
 {
 	public:
 		Devoir(void);
-		~Devoir(void);
+		
 		Devoir(string inti );
 		
 
