@@ -32,8 +32,8 @@ public:
 //             TCHAR getRessourceFile(int indiceCours, int indiceRessource);
 //             void setRessourceFile(int indiceCours, int indiceRessource, TCHAR chemin);
 //             chaine getNotesDevoir(int indiceCours, int indiceDevoir);
-//             void inscriptionCours(int indiceCours);
-//             void deinscriptionCours(int indiceCours);
+             void inscriptionCours(int indiceCours);
+             void deinscriptionCours(int indiceCours);
             std::vector<Cours> getCoursASuivre() ;
              std::vector<Cours> getCoursSuivi() ;
 //             std::vector<Depot> getListDepot(int indiceCours) ;
