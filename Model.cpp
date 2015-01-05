@@ -110,8 +110,12 @@ void Model::refuserCompte(int indiceCompte){
 //Model::std::TCHAR getRessourceFile(int indiceCours, int indiceRessource);
 //Model::void setRessourceFile(int indiceCours, int indiceRessource, std::TCHAR chemin);
 //Model::chaine getNotesDevoir(int indiceCours, int indiceDevoir);
-//Model::void inscriptionCours(int indiceCours);
-//Model::void deinscriptionCours(int indiceCours);
+void Model::inscriptionCours(int indiceCours){
+	Model::listCours[indiceCours].ajouterEtudiant(getSession());
+}
+void Model::deinscriptionCours(int indiceCours){
+	Model::listCours[indiceCours].supprimerEtudiant(getSession());
+}
 
 std::vector<Cours>  Model::getCoursASuivre() {
 	std::vector<Cours> lCAsuivre;
