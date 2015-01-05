@@ -6,13 +6,6 @@ Cours::Cours(void)
 {
 }
 
-
-Cours::~Cours(void)
-{
-}
-
-
-
 Cours::Cours(Enseignant cpt , int lim, bool acc, string inti){
 	limite = lim ;
 	compte = cpt ;
@@ -20,8 +13,6 @@ Cours::Cours(Enseignant cpt , int lim, bool acc, string inti){
 	intitule = inti ;
 	
 };
-
-
 
 Enseignant Cours::getEnseignant() const{
 	return compte; 
@@ -31,7 +22,7 @@ int Cours::getLimite() const{
 	return limite;
 }
 
-bool Cours::getAccepte() const{
+bool Cours::getAccepte() {
 	return accepte;
 }
 
