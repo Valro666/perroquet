@@ -24,7 +24,7 @@ Model::Model(void)
 	//accepterCompte(0);
 	//refuserCompte(0);
 
-	for(int i = 0 ; i <listCompte.size();i++ ){
+	for(unsigned int i = 0 ; i <listCompte.size();i++ ){
 		cout << listCompte[i].getIdentifiant() << endl;
 	}
 
@@ -95,7 +95,7 @@ void Model::ajouterCours(Cours c){
 }
 
 void Model::proposerCours(Cours c){
-	ajouterCours(c);
+	Model::ajouterCours(c);
 }
 
 void Model::accepterCompte(int indiceCompte){
@@ -129,10 +129,72 @@ void Model::refuserCompte(int indiceCompte){
 //Model::chaine getNotesDevoir(int indiceCours, int indiceDevoir);
 //Model::void inscriptionCours(int indiceCours);
 //Model::void deinscriptionCours(int indiceCours);
-//Model::std::vector<Cours> getCoursASuivre() ;
-//Model::std::vector<Cours> getCoursSuivie() ;
+
+std::vector<Cours>  Model::getCoursASuivre() {
+	std::vector<Cours> lCAsuivre;
+	for(unsigned int i = 0; i<listCours.size(); i++){
+		if(listCours[i].Cours::getAccepte()){
+			bool boolean = false;
+			for(int j = 0; j<listCours[i].getSizelEtu();j++){
+			
+				if(Model::listCours[i].Cours::getEtudiant(j).getIdentifiant()==getSession().getIdentifiant()){
+					boolean=true;
+				}
+			}
+			if(!boolean){
+				lCAsuivre.push_back(listCours[i]);
+			}
+		}
+		
+	}
+	return lCAsuivre;
+}
+
+std::vector<Cours> Model::getCoursSuivi() {
+	std::vector<Cours> lCSuivi;
+	for(unsigned int i = 0; i<listCours.size(); i++){
+		if(listCours[i].getAccepte()){
+			bool boolean = false;
+			for(int j = 0; j<listCours[i].getSizelEtu();j++){
+			
+				if(listCours[i].getEtudiant(j).getIdentifiant()==getSession().getIdentifiant()){
+					boolean=true;
+				}
+			}
+			if(boolean){
+				lCSuivi.push_back(listCours[i]);
+			}
+		}
+		
+	}
+	return lCSuivi;
+}
+
 //Model::std::vector<Depot> getListDepot(int indiceCours) ;
 //Model::std::vector<int> getListNote(int indiceCours) ;
 //Model::std::vector<Compte> geListDemandeCompte();
-//Model::std::vector<Cours> getCoursEnseigne() ;
-//Model::std::vector<Cours> geListPropositionCours() ;
+std::vector<Cours> Model::getCoursEnseigne() {
+	std::vector<Cours> lCEns;
+	for(unsigned int i = 0; i<listCours.size(); i++){
+		if(listCours[i].getAccepte()){
+			bool boolean = false;
+			if(listCours[i].getEnseignant().getIdentifiant()==getSession().getIdentifiant()){
+				boolean=true;
+			}
+			if(boolean){
+				lCEns.push_back(listCours[i]);
+			}
+		}
+		
+	}
+	return lCEns;
+}
+std::vector<Cours> Model::geListPropositionCours() {
+	std::vector<Cours> lPCours;
+	for(unsigned int i = 0; i<listCours.size(); i++){
+		if(!listCours[i].getAccepte()){
+			lPCours.push_back(listCours[i]);
+		}	
+	}
+	return lPCours;
+}
