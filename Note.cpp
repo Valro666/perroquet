@@ -7,9 +7,7 @@ Note::Note(void)
 }
 
 
-Note::~Note(void)
-{
-}
+
 
 Note::Note(Etudiant etu, int n){
 	etudiant = etu ;
