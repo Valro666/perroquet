@@ -9,13 +9,13 @@ class Cours
 {
 	public:
 		Cours(void);
-		~Cours(void);
+		
 		Cours(Enseignant compte , int limite, bool acc, string inti);
 		
 		int getLimite() const;
 		Enseignant getEnseignant() const;
 		string getIntitule() const;
-		bool getAccepte() const;
+		bool getAccepte() ;
 		Ressource getRessource (int index);
 		Devoir getDevoir (int index);
 		Etudiant getEtudiant (int index);
