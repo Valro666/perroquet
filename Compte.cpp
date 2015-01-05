@@ -29,6 +29,9 @@ Compte::Compte(const Compte &c){
 int Compte::getFuture(){
 	return futur;
 }
+int Compte::getType(){
+	return type;
+}
 string Compte::getIdentifiant() const{
 	return identifiant;
 }
