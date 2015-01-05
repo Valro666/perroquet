@@ -61,10 +61,20 @@ bool Model::inscription(Compte c){
 	return rep;
 }
 
-//Model::void accepterCours(int indiceCours);
-//Model::void refuserCours(int indiceCours);
-//Model::void ouvrirInscription(int indiceCours);
-//Model::void fermerInscription(int indiceCours);
+void Model::accepterCours(int indiceCours){
+	Model::listCours[indiceCours].setAccepte();
+}
+void Model::refuserCours(int indiceCours){
+	listCours.erase(listCours.begin()+indiceCours);
+}
+
+void Model::ouvrirInscription(int indiceCours){
+	if(Model::listCours[indiceCours].getOuvert())Model::listCours[indiceCours].setOuvert();
+}
+
+void Model::fermerInscription(int indiceCours){
+	if(!Model::listCours[indiceCours].getOuvert())Model::listCours[indiceCours].setOuvert();
+}
 //Model::void ajouterRessource(int indiceCours, Ressource elem);
 //Model::void ajouterDevoir(int indiceCours, Devoir elem);
 //Model::void ajouterDepot(int indiceCours, Depot elem);
