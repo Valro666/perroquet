@@ -37,8 +37,8 @@ public:
             std::vector<Cours> getCoursASuivre() ;
              std::vector<Cours> getCoursSuivi() ;
 //             std::vector<Depot> getListDepot(int indiceCours) ;
-//             std::vector<int> getListNote(int indiceCours) ;
-//             std::vector<Compte> geListDemandeCompte();
+             std::vector<int> getListNote(int indiceCours) ;
+             std::vector<Compte> geListDemandeCompte();
              std::vector<Cours> getCoursEnseigne() ;
              std::vector<Cours> geListPropositionCours() ;
 			 void ajouterCours(Cours c);
